@@ -1,0 +1,4 @@
+#Python libs
+rest_framework
+rest_framework_simplejwt
+psycopg2
