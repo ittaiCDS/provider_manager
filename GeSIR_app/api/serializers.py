@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Proveedor, Cordenadas
+from .models import Proveedor, Cordenadas, Rol
 from django.contrib.auth.models import User
 
 class ProveedorSerializer(serializers.ModelSerializer):
@@ -16,3 +16,8 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
+        
+class RolSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Rol
+        fields = '_all_'

@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.--
 
@@ -111,3 +112,24 @@ class Cobertura(models.Model):
         db_table = "Cobertura"
     def __str__(self):
         return self.name
+    
+class Rol(models.Model):
+    codigo = models.CharField(max_length=10)
+    nombre = models.CharField(max_length=30)
+    descripcion = models.CharField(max_length=100)
+    estatus = models.BooleanField(default=True)
+    creacion = models.DateTimeField(default=datetime.now())
+    actualizacion = models.DateTimeField(default=datetime.now())
+    class Meta:
+        db_table = "Rol"
+    def __str__(self) -> str:
+        return self.name
+    
+class Usuario_Rol(models.Model):
+    user = models.ForeignKey("User", on_delete=models.PROTECT)
+    rol = models.ForeignKey("Rol", on_delete=models.PROTECT)
+    class Meta:
+        db_table = "Usuario_Rol"
+    def __str__(self) -> str:
+        return self.name
+    
