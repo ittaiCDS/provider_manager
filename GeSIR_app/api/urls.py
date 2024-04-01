@@ -3,7 +3,7 @@ from rest_framework_simplejwt import views as jwt_views
 from .viewsCardinals import CordenadaListCreateView,CordenadasUpdateView,CordenadasDeleteView,CordenadasDetailView,AllCordenadasListView
 from .viewsProvider import ProveedorDeleteView,ProveedorDetailView,ProveedorListCreateView,ProveedorUpdateView,AllProveedoresListView
 from .viewsUser import  CreateUser, UpdateUser, GetAllUser, DeleteUser
-from .viewsRols import RolListCreateView, RolDetailView, RolDeleteView, RolUpdateView, AllRolListView
+from .viewsRols import CreateRol, GetAllRol, DeleteRol, UpdateRol
 
 urlpatterns = [
     #proveedores
@@ -27,10 +27,9 @@ urlpatterns = [
     path('user/all/', GetAllUser.as_view(), name='get-all-user'),
     path('user/delete/', DeleteUser.as_view(), name='delete-user'),
     #rol
-    path('rol/',RolListCreateView.as_view(), name='rol-create'), 
-    path('rol/all/', AllRolListView.as_view(), name='all-rol-list'),
-    path('rol/delete/<int:pk>', RolDeleteView.as_view(), name='rol-delete'),
-    path('rol/update/<int:pk>', RolUpdateView.as_view(), name='rol-update'),
-    path('rol/<int:pk>', RolDetailView.as_view(), name='rol-detail')
+    path('rol/', CreateRol.as_view(), name='rol-create'), 
+    path('rol/all/', GetAllRol.as_view(), name='all-rol-list'),
+    path('rol/delete/<int:pk>', DeleteRol.as_view(), name='rol-delete'),
+    path('rol/update/<int:pk>', UpdateRol.as_view(), name='rol-update'),
 ]
 
